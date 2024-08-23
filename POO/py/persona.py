@@ -5,7 +5,7 @@ class Persona:
         self.edad = edad
         self.carrera = carrera
     def saludar(self):
-        print(f"hola, mi nombre es {self.nombre} y tengo{self.edad}años")
+        print(f"hola, mi nombre es {self.nombre} y tengo {self.edad} años")
     def cumpleaños(self):
         self.edad += 1 
         print(f"!Feliz cumpleaños! Ahora tengo{self.edad}años")

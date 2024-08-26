@@ -1,26 +1,53 @@
-class Persona{
-    constructor(nombre,edad,carrera){
-        this.nombre= nombre;
-        this.edad= edad;
-        this.carrera= carrera;
+class Persona {
+    constructor(nombre, edad, carrera,universidad) {
+      this.nombre = nombre;
+      this.edad = edad;
+      this.carrera = carrera;
+      this.universidad = universidad;
+    }
+  
+    saludar() {
+      return 'Hola, mi nombre es ' + this.nombre + ' y tengo ' + this.edad + ' años.'
+    }
+  
+    cumpleanios() {
+      return '¡Felicidades! tienes ' + this.edad + ' años.';
+    }
+  
+    estudiar() {
+      return 'Estoy estudiando ' + this.carrera;
     }
 
-    saludar(){
-        console.log('hola, mi nombre es' + this.nombre + 'y tengo' + this.edad + 'años.')
+    Universidad(){
+        return 'Estudia en ' + this.universidad ; 
     }
-    cumpleaños(){
-        this.edad = this.edad +1;
-        console.log('!Feliz cumpleaños! Ahora tengo'+ this.edad+ 'años')
-    }
-    estudiar(){
-        console.log('Estoy estudiando'+ this.carrera);
-    }
-}
-function SaludoPersona1(){
-    //Crear una instancia de la clase persona
-    //declara la variable
-const Persona1 = new Persona ("Ana", 22, "ingeniera informatica") 
-//llamar a los metodos
-Persona1.saludar();
+  }
+  
+  // Crear una instancia de la clase Persona
+  const persona = new Persona('michelle', 18, 'Ingeniería','Catolica San Pablo');
+  
+  // Inicializar los elementos HTML
+  const saludar = document.getElementById('saludar');
+  const edad = document.getElementById('edad');
+  const carrera = document.getElementById('carrera');
+  const universidad = document.getElementById('universidad');
+  
+  // Función para saludar
+  function botonSaludar() {
+    saludar.textContent = persona.saludar();
+  }
+  
+  // Función para cumpleaños
+  function botonCumpleanios() {
+    edad.textContent = persona.cumpleanios();
+  }
+  
+  // Función para estudiar
+  function botonEstudiar() {
+    carrera.textContent = persona.estudiar();
+  }
+   // Función para universidad
+   function botonUniversidad() {
+    universidad.textContent = persona.Universidad();
+  }
 
-}

@@ -12,7 +12,7 @@ class Persona {
   
     saludar() {
       
-      return 'Hola, mi nombre es ' + this.nombre + ' y tengo ' + this.edad + ' años.'
+      return 'Hola, mi nombre es ' + this.nombre + ' y tengo ' + this.edad + ' años.';
     }
   
     cumpleanios() {
@@ -29,7 +29,7 @@ class Persona {
     //funciones para modificar
     Modificar_nombre() {
       nombre= prompt ("ingrese su nombre");
-      return 'Hola, mi nombre es ' + this.nombre + ' y tengo ' + this.edad + ' años.'
+      return 'Hola, mi nombre es ' + this.nombre + 'y tengo' + this.edad + 'años';
     }
   
     Modificar_cumpleanios() {
@@ -48,6 +48,25 @@ class Persona {
     } 
     //funciones para eliminar
 
+    
+    eliminar_saludar(){
+      return; 
+    }
+    
+    eliminar_cumpleanios(){
+      return;
+    }
+
+    eliminar_estudiar(){
+      return;
+    }
+
+    eliminar_universidad(){
+      return;
+    }
+    
+
+
 
 
   }
@@ -60,7 +79,8 @@ class Persona {
   const edad = document.getElementById('edad');
   const carrera = document.getElementById('carrera');
   const universidad = document.getElementById('universidad');
-  
+  //BOTONES 
+
   // Función para saludar
   function botonSaludar() {
     saludar.textContent = persona.saludar();
@@ -99,4 +119,24 @@ class Persona {
     universidad.textContent = persona.Modificar_Universidad();
   }
 
+  //BOTONES PARA ELIMINAR
 
+  //funcion para eliminar saludar
+  function botoneliminar_saludar(){
+    saludar.textContent = persona.eliminar_saludar();
+  }
+
+  // funcion para eliminar edad
+  function botoneliminar_cumpleanios(){
+    edad.textContent = persona.eliminar_cumpleanios();
+  }
+
+  // funcion para eliminar carrera
+  function botoneliminar_estudiar(){
+    carrera.textContent = persona.eliminar_estudiar();
+  }
+
+  // funcion para eliminar universidad
+  function botoneliminar_universidad(){
+    universidad.textContent = persona.eliminar_universidad();
+  }

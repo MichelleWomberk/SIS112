@@ -4,9 +4,14 @@ class Persona {
       this.edad = edad;
       this.carrera = carrera;
       this.universidad = universidad;
+      this.modificar_nombre = nombre;
+      this.modificar_edad = edad;
+      this.modificar_carrera = carrera;
+      this.modificar_universidad = universidad;
     }
   
     saludar() {
+      
       return 'Hola, mi nombre es ' + this.nombre + ' y tengo ' + this.edad + ' años.'
     }
   
@@ -21,6 +26,30 @@ class Persona {
     Universidad(){
         return 'Estudia en ' + this.universidad ; 
     }
+    //funciones para modificar
+    Modificar_nombre() {
+      nombre= prompt ("ingrese su nombre");
+      return 'Hola, mi nombre es ' + this.nombre + ' y tengo ' + this.edad + ' años.'
+    }
+  
+    Modificar_cumpleanios() {
+      edad = prompt ("insertar edad","18");
+      return '¡Felicidades! tienes ' + this.edad + ' años.';
+    }
+  
+    Modificar_estudiar() {
+      carrera = prompt ("ingrese la carrera que esta estudiando","ingenieria");
+      return 'Estoy estudiando ' + this.carrera;
+    }
+
+    Modificar_Universidad(){
+      universidad= prompt ("ingrese la universidad en la que esta estudiando","UCB");
+        return 'Estudia en ' + this.universidad ; 
+    } 
+    //funciones para eliminar
+
+
+
   }
   
   // Crear una instancia de la clase Persona
@@ -50,4 +79,24 @@ class Persona {
    function botonUniversidad() {
     universidad.textContent = persona.Universidad();
   }
+
+  //BOTONES PARA MODIFICAR
+
+  //función para modificar saludo
+  function botonModificar_Saludo(){
+    saludar.textContent = persona.Modificar_nombre();
+  }
+  //función para modificar edad
+  function botonModificar_Edad(){
+    edad.textContent = persona.Modificar_cumpleanios();
+  }
+  //función para modificar carrera
+  function botonModificar_carrera(){
+    carrera.textContent = persona.Modificar_estudiar();
+  }
+  //función para modificar universidad
+  function botonModificar_universidad(){
+    universidad.textContent = persona.Modificar_Universidad();
+  }
+
 

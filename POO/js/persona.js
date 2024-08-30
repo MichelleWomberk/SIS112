@@ -28,22 +28,23 @@ class Persona {
     }
     //funciones para modificar
     Modificar_nombre() {
-      nombre= prompt ("ingrese su nombre");
+      this.nombre= prompt ("ingrese su nombre");
+      this.edad = prompt ("insertar edad","18");
       return 'Hola, mi nombre es ' + this.nombre + 'y tengo' + this.edad + 'años';
     }
   
     Modificar_cumpleanios() {
-      edad = prompt ("insertar edad","18");
+      this.edad = prompt ("insertar edad","18");
       return '¡Felicidades! tienes ' + this.edad + ' años.';
     }
   
     Modificar_estudiar() {
-      carrera = prompt ("ingrese la carrera que esta estudiando","ingenieria");
+      this.carrera = prompt ("ingrese la carrera que esta estudiando","ingenieria");
       return 'Estoy estudiando ' + this.carrera;
     }
 
     Modificar_Universidad(){
-      universidad= prompt ("ingrese la universidad en la que esta estudiando","UCB");
+      this.universidad= prompt ("ingrese la universidad en la que esta estudiando","UCB");
         return 'Estudia en ' + this.universidad ; 
     } 
     //funciones para eliminar

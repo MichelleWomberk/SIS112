@@ -84,7 +84,7 @@ class Persona {
 
   // Función para saludar
   function botonSaludar() {
-    saludar.textContent = persona.saludar();
+    saludar.textContent = persona.saludar(); 
   }
   
   // Función para cumpleaños

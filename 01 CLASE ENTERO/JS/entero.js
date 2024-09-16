@@ -47,6 +47,25 @@ class Entero{
             return false;
         }
     }
+    factorialNum(n){
+        if (this.Num < 0) {
+            return "No existe factorial de números negativos";
+        }
+        let resultado = 1;
+        for (let i = 1; i <= this.Num; i++) {
+            resultado *= i;
+        }
+        return resultado;
+    }
+    esPerfecto(){
+        let sumaDivisores = 0;
+        for (let i = 1; i < this.Num; i++) {
+            if (this.Num % i === 0) {
+                sumaDivisores += i;
+            }
+        }
+        return sumaDivisores === this.Num;
+    }
     
 }
 
@@ -79,6 +98,17 @@ function esParImparNum(){
 
 function esPosNega(){
     var respuesta = ClassEntero.esPositivoNegativo();
-    var resp= respuesta?"Es Num positivo": "Es Num Negativo"
+    var resp= respuesta?"Es Numero es positivo": "Es Numero es Negativo"
     ClassEntero.showResultado(resp)
+}
+
+function FactorialNum() {
+    var resultado = ClassEntero.factorialNum();
+    ClassEntero.showResultado("Factorial: " + resultado);
+}
+
+function perfectoNum() {
+    var resultado = ClassEntero.esPerfecto();
+    var resp = resultado ? "Es un número perfecto" : "No es un número perfecto";
+    ClassEntero.showResultado(resp);
 }

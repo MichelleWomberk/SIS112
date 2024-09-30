@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor de Cadenas</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(to right, #ffafbd, #ffc3a0);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .container {
+            background-color: white;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+            width: 400px;
+        }
+
+        h1 {
+            color: #ff5e57;
+            font-size: 24px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 80%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+
+        button {
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            margin: 5px;
+            cursor: pointer;
+            background-color: #ff5e57;
+            color: white;
+            transition: background-color 0.3s;
+        }
+
+        button:hover {
+            background-color: #ff866e;
+        }
+
+        #resultado {
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #fff3e0;
+            border-radius: 5px;
+            box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Gestor de Cadenas</h1>
+        <input type="text" id="inputValor" placeholder="Escribe una cadena">
+        <br>
+        <button onclick="agregar()">Agregar</button>
+        <button onclick="eliminar()">Eliminar</button>
+        <button onclick="buscar()">Buscar</button>
+        <button onclick="ordenar()">Ordenar</button>
+
+        <div id="resultado"></div>
+    </div>
+
+    <script>
+        class ListaCadenas {
+            constructor() {
+                this.lista = [];
+            }
+
+            agregar(valor) {
+                this.lista.push(valor);
+            }
+
+            eliminar(valor) {
+                const index = this.lista.indexOf(valor);
+                if (index !== -1) {
+                    this.lista.splice(index, 1);
+                }
+            }
+
+            buscar(valor) {
+                return this.lista.indexOf(valor);
+            }
+
+            ordenar() {
+                this.lista.sort();
+            }
+        }
+
+        let miLista = new ListaCadenas();
+
+        function agregar() {
+            const valor = document.getElementById('inputValor').value;
+            miLista.agregar(valor);
+            document.getElementById('inputValor').value = '';
+            mostrarResultado();
+        }
+
+        function eliminar() {
+            const valor = document.getElementById('inputValor').value;
+            miLista.eliminar(valor);
+            document.getElementById('inputValor').value = '';
+            mostrarResultado();
+        }
+
+        function buscar() {
+            const valor = document.getElementById('inputValor').value;
+            const posicion = miLista.buscar(valor);
+            document.getElementById('resultado').innerHTML = `Posición de "${valor}": ${posicion}`;
+        }
+
+        function ordenar() {
+            miLista.ordenar();
+            mostrarResultado();
+        }
+
+        function mostrarResultado() {
+            document.getElementById('resultado').innerHTML = 'Lista actual: ' + miLista.lista.join(', ');
+        }
+    </script>
+
+</body>
+</html>
+

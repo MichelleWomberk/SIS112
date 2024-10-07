@@ -75,63 +75,7 @@
         <div id="resultado"></div>
     </div>
 
-    <script>
-        class ListaCadenas {
-            constructor() {
-                this.lista = [];
-            }
-
-            agregar(valor) {
-                this.lista.push(valor);
-            }
-
-            eliminar(valor) {
-                const index = this.lista.indexOf(valor);
-                if (index !== -1) {
-                    this.lista.splice(index, 1);
-                }
-            }
-
-            buscar(valor) {
-                return this.lista.indexOf(valor);
-            }
-
-            ordenar() {
-                this.lista.sort();
-            }
-        }
-
-        let miLista = new ListaCadenas();
-
-        function agregar() {
-            const valor = document.getElementById('inputValor').value;
-            miLista.agregar(valor);
-            document.getElementById('inputValor').value = '';
-            mostrarResultado();
-        }
-
-        function eliminar() {
-            const valor = document.getElementById('inputValor').value;
-            miLista.eliminar(valor);
-            document.getElementById('inputValor').value = '';
-            mostrarResultado();
-        }
-
-        function buscar() {
-            const valor = document.getElementById('inputValor').value;
-            const posicion = miLista.buscar(valor);
-            document.getElementById('resultado').innerHTML = `Posición de "${valor}": ${posicion}`;
-        }
-
-        function ordenar() {
-            miLista.ordenar();
-            mostrarResultado();
-        }
-
-        function mostrarResultado() {
-            document.getElementById('resultado').innerHTML = 'Lista actual: ' + miLista.lista.join(', ');
-        }
-    </script>
+    <script defer src="lista-cadenas.js"></script>
 
 </body>
 </html>

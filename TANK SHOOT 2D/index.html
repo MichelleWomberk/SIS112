@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TANK SHOOT - Inicio</title>
+    <style>
+        /* Estilos básicos de cuerpo */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Orbitron', sans-serif; /* Estilo de letra futurista */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(circle, #000 20%, #111 100%); /* Fondo oscuro */
+            color: white;
+        }
+
+        /* Contenedor del juego */
+        #game-container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 2s ease-out;
+        }
+
+        /* Título del juego con efecto holográfico */
+        h1 {
+            font-size: 5em;
+            letter-spacing: 8px;
+            margin-bottom: 40px;
+            color: #00ffea;
+            text-shadow: 0 0 10px #00ffea, 0 0 20px #00ffea, 0 0 40px #00ffea;
+            animation: flicker 3s infinite;
+        }
+
+        /* Botón de inicio con un efecto futurista */
+        .start-btn {
+            font-size: 1.5em;
+            padding: 15px 40px;
+            color: white;
+            background: linear-gradient(45deg, #1e1e1e, #333);
+            border: 3px solid #00ffea;
+            border-radius: 10px;
+            cursor: pointer;
+            box-shadow: 0 0 15px #00ffea, inset 0 0 10px rgba(0, 0, 0, 0.8);
+            transition: transform 0.2s ease-in-out;
+            animation: pulsate 1.5s infinite;
+            position: relative;
+        }
+
+        /* Efecto hover en el botón */
+        .start-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px #00ffea, inset 0 0 10px #00ffea;
+        }
+
+        /* Efecto holográfico */
+        .start-btn:before {
+            content: '';
+            position: absolute;
+            top: -5px;
+            bottom: -5px;
+            left: -5px;
+            right: -5px;
+            border: 2px solid #00ffea;
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+            animation: flicker 3s infinite;
+        }
+
+        .start-btn:hover:before {
+            opacity: 1;
+        }
+
+        /* Créditos */
+        .credits {
+            margin-top: 30px;
+            font-size: 1em;
+            opacity: 0.8;
+            color: #bbb;
+        }
+
+        /* Estilo futurista para los créditos */
+        .credits span {
+            color: #00ffea;
+        }
+
+        /* Partículas animadas */
+        .particles {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            z-index: 0;
+            pointer-events: none;
+        }
+
+        /* Animación de las partículas */
+        @keyframes moveParticles {
+            0% {
+                transform: translateY(0);
+            }
+            100% {
+                transform: translateY(-100%);
+            }
+        }
+
+        /* Animaciones */
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        @keyframes pulsate {
+            0%, 100% { box-shadow: 0 0 15px #00ffea, inset 0 0 10px rgba(0, 0, 0, 0.8); }
+            50% { box-shadow: 0 0 30px #00ffea, inset 0 0 20px rgba(0, 0, 0, 0.8); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Partículas animadas de fondo -->
+    <div class="particles">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <circle cx="50" cy="50" r="2" fill="#00ffea" />
+            <circle cx="20" cy="80" r="1.5" fill="#00ffea" />
+            <circle cx="80" cy="30" r="1.2" fill="#00ffea" />
+            <!-- Más círculos para las partículas -->
+        </svg>
+    </div>
+
+    <!-- Contenedor principal del juego -->
+    <div id="game-container">
+        <h1>TANK SHOOT</h1>
+        <button class="start-btn" onclick="startGame()">Iniciar Juego</button>
+        <div class="credits">Desarrollado por <span>equipo TANK SHOOT</span></div>
+    </div>
+
+    <!-- Script para el inicio del juego -->
+    <script>
+        // Función para iniciar el juego
+        function startGame() {
+            // Sonido de clic
+            const audio = new Audio('button-click.mp3'); // Asegúrate de incluir el archivo de sonido en la misma carpeta
+            audio.play();
+
+            // Redirección a la página del juego
+            setTimeout(() => {
+                window.location.href = 'game.html'; // Cambia por tu página del juego
+            }, 300); // Pequeño delay para el efecto
+        }
+    </script>
+</body>
+</html>
+
+
+
+

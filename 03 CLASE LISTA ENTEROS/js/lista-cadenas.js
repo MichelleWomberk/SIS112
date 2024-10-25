@@ -72,7 +72,7 @@ console.log('La CADENA con mayor cantidad de caracteres es: '+ miLista.lista[pos
 var mayor = 0;
 var posicion = -1;
 
-// Recorremos la lista
+
 for (var i = 0; i < miLista.lista.length; i++) {
     var cadena = miLista.lista[i];
     console.log(cadena);

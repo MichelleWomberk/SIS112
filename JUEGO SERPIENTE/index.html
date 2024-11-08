@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snake 2D - Pantalla de Inicio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <style>
+        /* Estilo del fondo y animaciones */
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            font-family: 'Orbitron', sans-serif;
+            background: #000;
+            color: #fff;
+            overflow: hidden;
+            position: relative;
+        }
+        
+        /* Fondo animado */
+        body::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle, rgba(0,36,61,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
+            animation: backgroundPulse 10s infinite alternate;
+            z-index: 0;
+        }
+
+        @keyframes backgroundPulse {
+            0% { filter: hue-rotate(0deg); }
+            100% { filter: hue-rotate(360deg); }
+        }
+
+        /* Contenedor principal */s
+        .container {
+            text-align: center;
+            animation: fadeIn 2s ease;
+            z-index: 1;
+            position: relative;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        h1 {
+            font-size: 4em;
+            color: #57ffcd;
+            text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.5);
+            animation: glow 1.5s infinite alternate;
+        }
+        
+        @keyframes glow {
+            from { text-shadow: 0 0 10px #ffdd57, 0 0 20px #ffdd57; }
+            to { text-shadow: 0 0 20px #ff8800, 0 0 30px #ff8800; }
+        }
+
+        /* Botón de juego */
+        .play-button {
+            font-size: 1.5em;
+            padding: 15px 40px;
+            color: #000;
+            background-color: #57ffc4;
+            border: none;
+            border-radius: 10px;
+            box-shadow: 0px 8px #4ad481;
+            cursor: pointer;
+            transition: transform 0.1s ease, background-color 0.3s ease;
+            text-transform: uppercase;
+            animation: pulse 1.5s infinite alternate;
+        }
+
+        .play-button:hover {
+            background-color: #6cffb6;
+        }
+
+        .play-button:active {
+            transform: translateY(5px);
+            box-shadow: 0px 4px #3dc174;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.05); }
+        }
+
+        /* Elementos decorativos de serpiente y frutas */
+        .snake {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            background: url('https://path-to-your-snake-image.png') no-repeat center/contain;
+            animation: slide 4s infinite alternate;
+        }
+        .snake1 { top: 10%; left: 5%; }
+        .snake2 { bottom: 10%; right: 10%; transform: scaleX(-1); }
+
+        .fruit {
+            position: absolute;
+            width: 50px;
+            height: 50px;
+            background: url('https://path-to-your-fruit-image.png') no-repeat center/contain;
+            animation: float 3s infinite ease-in-out;
+        }
+        .fruit1 { top: 35%; left: 20%; }
+        .fruit2 { top: 25%; right: 15%; }
+        .fruit3 { bottom: 20%; left: 40%; }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-15px); }
+        }
+        
+        @keyframes slide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(15px); }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Snake 2D</h1>
+        <button class="play-button" onclick="startGame()">Jugar</button>
+    </div>
+    
+    <!-- Elementos decorativos de serpientes y frutas -->
+    <div class="snake snake1"></div>
+    <div class="snake snake2"></div>
+    <div class="fruit fruit1"></div>
+    <div class="fruit fruit2"></div>
+    <div class="fruit fruit3"></div>
+
+    <script>
+        function startGame() {
+            alert("¡El juego comenzará pronto!"); // Aquí irá la lógica para iniciar el juego
+        }
+    </script>
+</body>
+</html>
+
+
+
+
+
+

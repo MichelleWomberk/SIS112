@@ -904,7 +904,7 @@ RelojdeArena() {
     }
 
     DibujarUno(x, y, ancho, alto) {
-        this.ctx.fillStyle = "#8e44ad"; // Color para valor 1
+        this.ctx.fillStyle = "#5ccbff"; // Color para valor 1
         this.ctx.fillRect(x, y, ancho, alto);
         this.ctx.strokeStyle = "#ecf0f1";
         this.ctx.strokeRect(x, y, ancho, alto);
@@ -916,7 +916,7 @@ RelojdeArena() {
     }
 
     DibujarDos(x, y, ancho, alto) {
-        this.ctx.fillStyle = "#e74c3c"; // Color para valor 2
+        this.ctx.fillStyle = "#ff5c9f"; // Color para valor 2
         this.ctx.fillRect(x, y, ancho, alto);
         this.ctx.strokeStyle = "#ecf0f1";
         this.ctx.strokeRect(x, y, ancho, alto);

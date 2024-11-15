@@ -3,61 +3,93 @@ html, body {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    font-family: Arial, sans-serif;
+    font-family: 'Poppins', Arial, sans-serif;
     overflow: hidden;
 }
 
 /* Estilo del cuerpo y fondo */
 body {
-    background-color: #20232a;
-    color: white;
+    background: linear-gradient(135deg, #f6d365, #fda085); /* Tonos cálidos y suaves */
+    color: #333;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100vh;
+    overflow: hidden;
 }
 
 /* Contenedor principal */
 .main-container {
     display: flex;
     align-items: center;
-    gap: 20px; /* Espacio entre el canvas y los botones */
+    gap: 30px; /* Espacio amplio entre canvas y botones */
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.2); /* Fondo translúcido */
+    border-radius: 15px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(10px); /* Efecto de desenfoque */
 }
 
 /* Estilos para el contenedor de botones */
 .button-container {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Espacio entre cada botón */
+    gap: 15px; /* Espacio definido entre botones */
 }
 
 /* Estilos para los botones */
 button {
-    padding: 12px 24px;
-    font-size: 16px;
+    padding: 15px 30px;
+    font-size: 18px;
     font-weight: bold;
-    color: #20232a;
-    background-color: #61dafb;
+    color: #ffffff;
+    background: linear-gradient(135deg, #a8edea, #fed6e3); /* Degradado pastel */
     border: none;
-    border-radius: 5px;
+    border-radius: 10px;
     cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
 button:hover {
-    background-color: #21a1f1;
-    transform: scale(1.05);
+    background: linear-gradient(135deg, #fed6e3, #a8edea); /* Cambio de dirección del degradado */
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(248, 221, 232, 0.7);
 }
 
 button:active {
-    background-color: #1a85c2;
+    background: #f8c3d0; /* Color más sólido al hacer clic */
+    transform: scale(1.05);
+    box-shadow: 0 3px 8px rgba(200, 150, 200, 0.6);
 }
 
 /* Estilo del canvas */
 canvas {
-    border: 3px solid #61dafb;
-    border-radius: 10px;
-    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.5);
-    max-width: 90vw;
-    max-height: 90vh;
+    border: 3px solid #f8b195; /* Borde en tono pastel */
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+    max-width: 85vw;
+    max-height: 85vh;
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+}
+
+canvas:hover {
+    box-shadow: 0 15px 30px rgba(248, 177, 149, 0.6);
+    transform: scale(1.02);
+}
+
+/* Animación al cargar */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.main-container {
+    animation: fadeIn 0.8s ease-in-out;
 }

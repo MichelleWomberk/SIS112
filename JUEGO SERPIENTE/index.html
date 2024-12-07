@@ -3,148 +3,125 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Snake 2D - Pantalla de Inicio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Orbitron:wght@700&display=swap" rel="stylesheet">
+    <title>Snake 2D - Inicio</title>
     <style>
-        /* Estilo del fondo y animaciones */
-        body {
+        /* Estilos básicos para el cuerpo */
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+            font-family: 'Orbitron', sans-serif; /* Letra futurista */
             display: flex;
             justify-content: center;
             align-items: center;
-            height: 100vh;
-            margin: 0;
-            font-family: 'Orbitron', sans-serif;
-            background: #000;
-            color: #fff;
-            overflow: hidden;
-            position: relative;
+            background: linear-gradient(180deg, #1e1e1e, #3d3d3d); /* Fondo más suave */
+            color: #ffffff;
         }
-        
-        /* Fondo animado */
-        body::before {
-            content: "";
+
+        /* Contenedor principal */
+        #game-container {
+            text-align: center;
+            position: relative;
+            z-index: 1;
+            animation: fadeIn 2s ease-out;
+        }
+
+        /* Título del juego */
+        h1 {
+            font-size: 4em;
+            margin-bottom: 30px;
+            color: #4caf50; /* Verde que recuerda al tema Snake */
+            text-shadow: 0 0 10px #4caf50, 0 0 20px #4caf50, 0 0 40px #4caf50;
+            animation: glow 2s infinite alternate;
+        }
+
+        /* Botón de inicio */
+        .start-btn {
+            font-size: 1.5em;
+            padding: 15px 40px;
+            color: white;
+            background: linear-gradient(45deg, #2d2d2d, #4caf50);
+            border: 3px solid #4caf50;
+            border-radius: 15px;
+            cursor: pointer;
+            box-shadow: 0 0 20px #4caf50, inset 0 0 10px rgba(0, 0, 0, 0.8);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* Efectos al pasar el mouse */
+        .start-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 30px #4caf50, inset 0 0 15px #4caf50;
+        }
+
+        /* Créditos */
+        .credits {
+            margin-top: 20px;
+            font-size: 1em;
+            color: #bbbbbb;
+        }
+
+        .credits span {
+            color: #4caf50;
+        }
+
+        /* Animación de partículas */
+        .particles {
             position: absolute;
+            top: 0;
+            left: 0;
             width: 100%;
             height: 100%;
-            background: radial-gradient(circle, rgba(0,36,61,1) 0%, rgba(9,9,121,1) 35%, rgba(0,212,255,1) 100%);
-            animation: backgroundPulse 10s infinite alternate;
             z-index: 0;
+            background: url('snake-particles.svg') repeat;
+            animation: moveParticles 10s linear infinite;
         }
 
-        @keyframes backgroundPulse {
-            0% { filter: hue-rotate(0deg); }
-            100% { filter: hue-rotate(360deg); }
+        /* Animaciones */
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 10px #4caf50, 0 0 20px #4caf50;
+            }
+            to {
+                text-shadow: 0 0 30px #4caf50, 0 0 50px #4caf50;
+            }
         }
 
-        /* Contenedor principal */s
-        .container {
-            text-align: center;
-            animation: fadeIn 2s ease;
-            z-index: 1;
-            position: relative;
-        }
         @keyframes fadeIn {
             from { opacity: 0; }
             to { opacity: 1; }
         }
 
-        h1 {
-            font-size: 4em;
-            color: #57ffcd;
-            text-shadow: 4px 4px 12px rgba(0, 0, 0, 0.5);
-            animation: glow 1.5s infinite alternate;
-        }
-        
-        @keyframes glow {
-            from { text-shadow: 0 0 10px #ffdd57, 0 0 20px #ffdd57; }
-            to { text-shadow: 0 0 20px #ff8800, 0 0 30px #ff8800; }
-        }
-
-        /* Botón de juego */
-        .play-button {
-            font-size: 1.5em;
-            padding: 15px 40px;
-            color: #000;
-            background-color: #57ffc4;
-            border: none;
-            border-radius: 10px;
-            box-shadow: 0px 8px #4ad481;
-            cursor: pointer;
-            transition: transform 0.1s ease, background-color 0.3s ease;
-            text-transform: uppercase;
-            animation: pulse 1.5s infinite alternate;
-        }
-
-        .play-button:hover {
-            background-color: #6cffb6;
-        }
-
-        .play-button:active {
-            transform: translateY(5px);
-            box-shadow: 0px 4px #3dc174;
-        }
-
-        @keyframes pulse {
-            0% { transform: scale(1); }
-            100% { transform: scale(1.05); }
-        }
-
-        /* Elementos decorativos de serpiente y frutas */
-        .snake {
-            position: absolute;
-            width: 120px;
-            height: 120px;
-            background: url('https://path-to-your-snake-image.png') no-repeat center/contain;
-            animation: slide 4s infinite alternate;
-        }
-        .snake1 { top: 10%; left: 5%; }
-        .snake2 { bottom: 10%; right: 10%; transform: scaleX(-1); }
-
-        .fruit {
-            position: absolute;
-            width: 50px;
-            height: 50px;
-            background: url('https://path-to-your-fruit-image.png') no-repeat center/contain;
-            animation: float 3s infinite ease-in-out;
-        }
-        .fruit1 { top: 35%; left: 20%; }
-        .fruit2 { top: 25%; right: 15%; }
-        .fruit3 { bottom: 20%; left: 40%; }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
-        }
-        
-        @keyframes slide {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(15px); }
+        @keyframes moveParticles {
+            from { background-position: 0 0; }
+            to { background-position: 0 100%; }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Snake 2D</h1>
-        <button class="play-button" onclick="startGame()">Jugar</button>
-    </div>
-    
-    <!-- Elementos decorativos de serpientes y frutas -->
-    <div class="snake snake1"></div>
-    <div class="snake snake2"></div>
-    <div class="fruit fruit1"></div>
-    <div class="fruit fruit2"></div>
-    <div class="fruit fruit3"></div>
+    <!-- Fondo animado -->
+    <div class="particles"></div>
 
+    <!-- Contenedor principal -->
+    <div id="game-container">
+        <h1>SNAKE 2D</h1>
+        <button class="start-btn" onclick="startGame()">Jugar</button>
+        <div class="credits">Desarrollado por <span>equipo Snake 2D</span></div>
+    </div>
+
+    <!-- Script para iniciar el juego -->
     <script>
         function startGame() {
-            alert("¡El juego comenzará pronto!"); // Aquí irá la lógica para iniciar el juego
+            // Reproduce un sonido (opcional)
+            const audio = new Audio('button-click.mp3'); // Agrega este archivo si lo necesitas
+            audio.play();
+
+            // Redirige al archivo snake.html
+            setTimeout(() => {
+                window.location.href = 'snake.html';
+            }, 300); // Pequeño retraso para el efecto
         }
     </script>
 </body>
 </html>
-
-
-
-
-
-

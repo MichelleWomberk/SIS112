@@ -1,0 +1,2 @@
+const CANT_FILAS = 20
+const CANT_COLUMNAS= 20

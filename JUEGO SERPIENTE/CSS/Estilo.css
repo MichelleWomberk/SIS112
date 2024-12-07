@@ -1,0 +1,43 @@
+/* Reseteo de estilos básicos para html y body */
+html, body {
+    box-sizing: border-box; /* Incluye padding y border en el ancho/alto */
+    margin: 0; /* Elimina márgenes predeterminados */
+    padding: 0; /* Elimina relleno predeterminado */
+    height: 100%; /* Asegura que html y body ocupen toda la altura */
+}
+
+/* Estilos generales para el cuerpo */
+body {
+    font-family: 'Arial', sans-serif; /* Fuente legible y moderna */
+    background-color: #20232a; /* Fondo gris azulado oscuro */
+    color: #ffffff; /* Texto en blanco para buen contraste */
+    display: flex; /* Activa flexbox para alineación */
+    justify-content: center; /* Centra horizontalmente los elementos */
+    align-items: center; /* Centra verticalmente los elementos */
+    height: 100vh; /* Altura igual a la ventana */
+    overflow: hidden; /* Evita que aparezcan barras de desplazamiento */
+    margin: 0 auto; /* Centra el contenido en caso de overflow horizontal */
+}
+
+/* Estilo para el canvas del juego */
+#gameCanvas {
+    display: block; /* Asegura que se comporte como un bloque */
+    border: 5px solid #61dafb; /* Borde azul claro para resaltar */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Sombra más sutil */
+    background-color: #282c34; /* Fondo gris oscuro */
+    border-radius: 12px; /* Bordes ligeramente más redondeados */
+    width: 80%; /* Ajuste del tamaño relativo al contenedor */
+    max-width: 800px; /* Límite máximo de ancho */
+    height: 80%; /* Proporción vertical */
+    max-height: 600px; /* Límite máximo de altura */
+}
+
+/* Mejora de la accesibilidad: Soporte para pantallas pequeñas */
+@media (max-width: 600px) {
+    #gameCanvas {
+        width: 90%; /* Ajuste de ancho para pantallas pequeñas */
+        height: auto; /* Mantén altura proporcional */
+        border-width: 3px; /* Borde más fino */
+        border-radius: 8px; /* Redondeado menor */
+    }
+}

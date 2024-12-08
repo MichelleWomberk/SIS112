@@ -7,117 +7,123 @@
     <meta name="author" content="[Tu Nombre]">
     <title>Snake 2D - Juego de la Serpiente</title>
     <style>
+        @keyframes gradientBackground {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
         body {
             font-family: 'Poppins', sans-serif;
-            background: linear-gradient(45deg, #1e1e1e, #121212);
-            color: #fff;
-            text-align: center;
+            background: linear-gradient(-45deg, #1e3c72, #2a5298, #6dd5ed, #c2e9fb);
+            background-size: 400% 400%;
+            animation: gradientBackground 15s ease infinite;
             margin: 0;
             padding: 0;
+            text-align: center;
+            color: white;
         }
 
         header {
-            padding: 20px;
-            background-color: #242424;
-            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
-            border-bottom: 3px solid #00ff00;
+            padding: 20px 10px;
         }
 
         header h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            color: #00ff00;
-            text-shadow: 0px 0px 10px rgba(0, 255, 0, 0.8);
+            font-size: 4.5rem;
+            color: #ffde59;
+            text-shadow: 0 0 20px rgba(255, 223, 89, 0.8), 0 0 30px rgba(255, 223, 89, 0.6);
         }
 
         header p {
             font-size: 1.2rem;
-            color: #cccccc;
+            margin: 10px 0 20px;
+            color: #ffffff;
         }
 
         canvas {
-            background-color: #000;
+            background-color: rgba(0, 0, 0, 0.8);
+            border: 10px solid #ffde59;
+            border-radius: 20px;
             display: block;
-            margin: 30px auto;
-            border: 8px solid #00ff00;
-            box-shadow: 0px 8px 20px rgba(0, 255, 0, 0.6);
-            border-radius: 10px;
+            margin: 40px auto;
+            box-shadow: 0 0 30px rgba(255, 223, 89, 0.8);
+            width: 500px;
+            height: 500px;
         }
 
         #FPS {
-            font-size: 1.5rem;
-            margin: 20px;
-            color: #ff0000;
-            text-shadow: 0px 0px 5px rgba(255, 0, 0, 0.8);
-        }
-
-        footer {
-            margin-top: 20px;
-            padding: 15px;
-            background-color: #242424;
-            color: #888;
-            font-size: 1rem;
-            box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.3);
-        }
-
-        footer a {
-            color: #00ff00;
-            text-decoration: none;
-        }
-
-        footer a:hover {
-            text-decoration: underline;
-            color: #00cc00;
+            font-size: 2rem;
+            color: #ff6f61;
+            text-shadow: 0 0 10px rgba(255, 111, 97, 0.8);
         }
 
         .game-instructions {
             margin: 20px auto;
-            padding: 10px;
-            background: rgba(0, 0, 0, 0.8);
-            color: #ffffff;
-            border: 2px solid #00ff00;
-            border-radius: 8px;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.85);
+            border: 2px solid #ffde59;
+            border-radius: 10px;
             width: 90%;
             max-width: 600px;
+            box-shadow: 0 0 15px rgba(255, 223, 89, 0.6);
+            color: white;
             text-align: left;
-            font-size: 1rem;
-            box-shadow: 0px 4px 10px rgba(0, 255, 0, 0.3);
+        }
+
+        .game-instructions h2 {
+            color: #ffde59;
+            text-shadow: 0 0 10px rgba(255, 223, 89, 0.8);
         }
 
         .game-instructions ul {
-            margin: 0;
-            padding: 0 20px;
-            list-style: none;
+            padding-left: 20px;
         }
 
-        .game-instructions ul li {
-            margin: 5px 0;
+        .game-instructions li {
+            margin-bottom: 10px;
+            font-size: 1rem;
         }
 
+        footer {
+            margin-top: 30px;
+            padding: 15px;
+            background: rgba(0, 0, 0, 0.9);
+            border-top: 2px solid #ffde59;
+            font-size: 1rem;
+            color: #aaa;
+        }
+
+        footer a {
+            color: #ffde59;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            color: #ffd700;
+            text-decoration: underline;
+        }
     </style>
 </head>
 <body>
     <header>
         <h1>Snake 2D</h1>
-        <p>Controla la serpiente con las teclas de flecha o WASD. ¡Come la comida y evita colisionar contigo mismo!</p>
+        <p>¡Controla la serpiente, come las frutas y supera tu mejor puntaje!</p>
     </header>
 
-    <canvas id="Canvas" width="400" height="400"></canvas>
+    <canvas id="Canvas" width="500" height="500"></canvas>
     <p id="FPS">Puntaje: 0</p>
 
     <div class="game-instructions">
-        <h2>Instrucciones:</h2>
+        <h2>Cómo jugar:</h2>
         <ul>
             <li>Usa las teclas <strong>W, A, S, D</strong> o las flechas del teclado para mover la serpiente.</li>
-            <li>Come la comida roja para ganar puntos.</li>
-            <li>Evita colisionar con las paredes o contigo mismo.</li>
+            <li>Come las frutas para ganar puntos y hacer crecer la serpiente.</li>
+            <li>Evita colisionar contigo mismo o con las paredes.</li>
         </ul>
     </div>
 
     <footer>
-        <p>
-            Desarrollado por <a href="#">[Tu Nombre]</a> | &copy; 2024
-        </p>
+        <p>Desarrollado por <a href="#">[Tu Nombre]</a> | &copy; 2024</p>
     </footer>
 
     <script src="js/serpiente.js"></script>

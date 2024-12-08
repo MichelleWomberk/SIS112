@@ -171,7 +171,7 @@ function DibujarCero(ctx,x, y, x1, y1){
 }
 
 function DibujarUno(ctx,x, y, x1, y1){
-    ctx.fillStyle = "#d35400";
+    ctx.fillStyle = "#ff9c38";
     ctx.fillRect(x, y, x1, y1);
     
 }
@@ -216,7 +216,7 @@ function updateGame(){
 
     //drawEscenario(ctx,escenario); //dibujamos el escenario 
     DibujarMapa(ctx,mapa);
-    //playerTank.drawTank(ctx);
+     //playerTank.drawTank(ctx);
 
     //enemyTank1.drawEnemyTank(ctx)
     //enemyTank2.drawEnemyTank(ctx)

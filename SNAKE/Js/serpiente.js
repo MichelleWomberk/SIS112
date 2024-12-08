@@ -57,15 +57,18 @@ function update() {
     snake.unshift(head);
 
     // Si la serpiente come la comida
-    if (head.x === food.x && head.y === food.y) {
-        score++;
-        spawnFood();  // Generar nueva comida
-    } else {
-        snake.pop();  // Eliminar la cola de la serpiente
-    }
+if (head.x === food.x && head.y === food.y) {
+    score++;
+    spawnFood();  // Generar nueva comida
+    document.getElementById('fruitSound').play();  // Reproducir sonido
+} else {
+    snake.pop();  // Eliminar la cola de la serpiente
+}
 
-    lastDirection = direction;  // Actualizar la última dirección
-    draw();  // Redibujar el lienzo
+lastDirection = direction;  // Actualizar la última dirección
+draw();  // Redibujar el lienzo
+
+    
 }
 
 // Dibuja la serpiente y la comida en el canvas
@@ -73,7 +76,7 @@ function draw() {
     ctx.clearRect(0, 0, canvas.width, canvas.height);  // Limpiar el lienzo
 
     // Dibujar la serpiente
-    ctx.fillStyle = "#00FF00";  // Color verde para la serpiente
+    ctx.fillStyle = "#17202a";  // Color verde para la serpiente
     for (var i = 0; i < snake.length; i++) {
         ctx.fillRect(snake[i].x, snake[i].y, BLOCK_SIZE, BLOCK_SIZE);
     }
@@ -83,7 +86,7 @@ function draw() {
     ctx.fillRect(food.x, food.y, BLOCK_SIZE, BLOCK_SIZE);
 
     // Mostrar el puntaje
-    document.getElementById("FPS").innerHTML = "Puntaje: " + score;
+    document.getElementById("FPS").innerHTML = "puntaje: " + score;
 }
 
 // Generar comida en una posición aleatoria

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Snake 2D - Un emocionante juego de la serpiente en 2D. Controla la serpiente, come la comida y evita colisionar contigo mismo.">
+    <meta name="author" content="[Tu Nombre]">
+    <title>Snake 2D - Juego de la Serpiente</title>
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            background: linear-gradient(45deg, #1e1e1e, #121212);
+            color: #fff;
+            text-align: center;
+            margin: 0;
+            padding: 0;
+        }
+
+        header {
+            padding: 20px;
+            background-color: #242424;
+            box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.5);
+            border-bottom: 3px solid #00ff00;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            color: #00ff00;
+            text-shadow: 0px 0px 10px rgba(0, 255, 0, 0.8);
+        }
+
+        header p {
+            font-size: 1.2rem;
+            color: #cccccc;
+        }
+
+        canvas {
+            background-color: #000;
+            display: block;
+            margin: 30px auto;
+            border: 8px solid #00ff00;
+            box-shadow: 0px 8px 20px rgba(0, 255, 0, 0.6);
+            border-radius: 10px;
+        }
+
+        #FPS {
+            font-size: 1.5rem;
+            margin: 20px;
+            color: #ff0000;
+            text-shadow: 0px 0px 5px rgba(255, 0, 0, 0.8);
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 15px;
+            background-color: #242424;
+            color: #888;
+            font-size: 1rem;
+            box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.3);
+        }
+
+        footer a {
+            color: #00ff00;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+            color: #00cc00;
+        }
+
+        .game-instructions {
+            margin: 20px auto;
+            padding: 10px;
+            background: rgba(0, 0, 0, 0.8);
+            color: #ffffff;
+            border: 2px solid #00ff00;
+            border-radius: 8px;
+            width: 90%;
+            max-width: 600px;
+            text-align: left;
+            font-size: 1rem;
+            box-shadow: 0px 4px 10px rgba(0, 255, 0, 0.3);
+        }
+
+        .game-instructions ul {
+            margin: 0;
+            padding: 0 20px;
+            list-style: none;
+        }
+
+        .game-instructions ul li {
+            margin: 5px 0;
+        }
+
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Snake 2D</h1>
+        <p>Controla la serpiente con las teclas de flecha o WASD. ¡Come la comida y evita colisionar contigo mismo!</p>
+    </header>
+
+    <canvas id="Canvas" width="400" height="400"></canvas>
+    <p id="FPS">Puntaje: 0</p>
+
+    <div class="game-instructions">
+        <h2>Instrucciones:</h2>
+        <ul>
+            <li>Usa las teclas <strong>W, A, S, D</strong> o las flechas del teclado para mover la serpiente.</li>
+            <li>Come la comida roja para ganar puntos.</li>
+            <li>Evita colisionar con las paredes o contigo mismo.</li>
+        </ul>
+    </div>
+
+    <footer>
+        <p>
+            Desarrollado por <a href="#">[Tu Nombre]</a> | &copy; 2024
+        </p>
+    </footer>
+
+    <script src="js/serpiente.js"></script>
+</body>
+</html>

@@ -22,7 +22,7 @@ resizeCanvas();
 window.addEventListener('resize', resizeCanvas);
 
 //Creamos un objeto de juego
-const game = new game(canvas.width, canvas.height, "start");
+const game= new Game(canvas.width, canvas.height, "start");
 
 //creamos un tanque de jugador y un tanque de enemigo
 const playerSnake = new Snake (100, 100, 'up', 3,game.ancho,game.alto ); // posicion del tanque 
